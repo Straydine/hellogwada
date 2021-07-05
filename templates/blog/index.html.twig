@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog
+{% endblock %}
+
+{% block body %}
+
+	<div id="bloc_page">
+
+		<div id="banniere_image">
+			<div id="banniere_description">
+				Retour sur la magnique randonnée de la Soufrière en Guadeloupe...
+				<a href="#" class="bouton_rouge">Voir l'article
+					<img src="../assets/img/flecheblanchedroite.png" alt=""/></a>
+			</div>
+		</div>
+		<p class="justify-content-center" style="margin: 5rem; ">
+			Bien sûr, il y a les plages et les activités nautiques mais la Guadeloupe avec son relief montagneux offre un foyer de biodiversité . 
+			La Guadeloupe, composée de Basse-Terre, Grande-Terre, Les Saintes, Marie-Galante et La Désirade, offre une immersion inédite dans la nature et nous permet de vous proposer le Top 10 des lieux et des activités à ne pas manquer.</p>
+	</div>
+
+<main>
+    
+
+	<!-- <div class="d-flex justify-content-around flex-wrap"> -->
+	<div class="d-flex justify-content-around flex-wrap card-deck ">
+		{% for blog in blogs %}
+
+			<div class="card" style="width: 25rem; margin-bottom: 5rem">
+				<img class="card-img-top" src="{{ asset('img/' ~ blog.image ) }}" class="card-img-top" style="width:25rem; height:15rem;">
+				<div class="card-body">
+					<h3 class="card-title">{{blog.titre}}</h3>
+					<p class="card-text">{{blog.text}}</p>
+				</div>
+			</div>
+
+		{% endfor %}
+	</div>
+</main>
+
+{% endblock %}
